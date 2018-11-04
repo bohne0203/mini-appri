@@ -11,6 +11,7 @@
 - has_many blogs
 
 ##blogs table
+
 |Column|Type|Options|
 |------|----|-------|
 |content|text|null: false|
