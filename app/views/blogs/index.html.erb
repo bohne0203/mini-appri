@@ -18,10 +18,14 @@
 <body>
   <nav class="blue darken-2">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Logo</a>
+      <a href="/" class="brand-logo center">Blog</a>
       <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="sass.html">Sass</a></li>
-        <li><a href="badges.html">Components</a></li>
+        <li><a><%= current_user.name %></a></li>
+        <li>
+        <li><a href="/users/sign_in">Sign in</a></li>
+        <li>
+          <%= link_to 'Sign out',"/users/sign_out", method: :delete %>
+        </li>
         <li><a href="collapsible.html">JavaScript</a></li>
       </ul>
     </div>
@@ -30,9 +34,12 @@
         <div class="col s12 m4 l8">
           <div class="card white-1">
             <div class="card-content black-text">
-              <span class="card-title">Card Title</span>
-              <p>I am a very simple card. I am good at containing small bits of information.
-              I am convenient because I require little markup to use effectively.</p>
+              <span class="card-title">
+                <%= @blog %>
+              </span>
+              <p>
+                <%= @blog %>
+              </p>
             </div>
             <div class="card-action">
               <a href="#">SHOW</a>
