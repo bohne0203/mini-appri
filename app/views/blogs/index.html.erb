@@ -1,55 +1,22 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Blog</title>
-  <style type="text/css" href="./style.css"></style>
+<%= render partial: "header" %>
 
-  <!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+  <div class="row center">
+  <div class="col s1 m2"></div>
+    <div class="col s12 m4 l8">
+      <% @blogs.each do |blog| %>
+        <%= render partial: "blog", locals: { blog: blog } %>
+      <% end %>
+  </div>
+  </div>
+  <%= paginate(@blogs) %>
 
-  <!-- Compiled and minified JavaScript -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
-
-  <script
-  src="https://code.jquery.com/jquery-3.3.1.js"
-  integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-  crossorigin="anonymous"></script>
-</head>
-<body>
-  <nav class="blue darken-2">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo center">Blog</a>
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a><%= current_user.name %></a></li>
-        <li>
-        <li><a href="/users/sign_in">Sign in</a></li>
-        <li>
-          <%= link_to 'Sign out',"/users/sign_out", method: :delete %>
-        </li>
-        <li><a href="collapsible.html">JavaScript</a></li>
-      </ul>
-    </div>
-  </nav>
-      <div class="row center">
-        <div class="col s12 m4 l8">
-          <div class="card white-1">
-            <div class="card-content black-text">
-              <span class="card-title">
-                <%= @blog %>
-              </span>
-              <p>
-                <%= @blog %>
-              </p>
-            </div>
-            <div class="card-action">
-              <a href="#">SHOW</a>
-              <a href="#">EDIT</a>
-              <a href="#">DELETE</a>
-            </div>
-          </div>
-        </div>
+      <div class="fixed-action-btn horizontal">
+          <a href= "/blogs/new" class="btn-floating btn-large red">
+            <i class="large material-icons">create</i>
+          </a>
       </div>
-
 
 <script type="text/javascript" src="./app.js"></script>
 </body>
